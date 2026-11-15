@@ -1,0 +1,40 @@
+# Merge into an existing profile. PROXY and Claude must already exist.
+rule-providers:
+  personal-reject:
+    type: http
+    behavior: classical
+    format: text
+    interval: 300
+    proxy: PROXY
+    path: ./rule-providers/personal/reject.list
+    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/main/rules/reject.list
+  personal-direct:
+    type: http
+    behavior: classical
+    format: text
+    interval: 300
+    proxy: PROXY
+    path: ./rule-providers/personal/direct.list
+    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/main/rules/direct.list
+  personal-residential:
+    type: http
+    behavior: classical
+    format: text
+    interval: 300
+    proxy: PROXY
+    path: ./rule-providers/personal/residential.list
+    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/main/rules/residential.list
+  personal-proxy:
+    type: http
+    behavior: classical
+    format: text
+    interval: 300
+    proxy: PROXY
+    path: ./rule-providers/personal/proxy.list
+    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/main/rules/proxy.list
+rules:
+  # Insert AFTER management/DNS/LAN exceptions, BEFORE broad base rules.
+  - RULE-SET,personal-reject,REJECT
+  - RULE-SET,personal-direct,DIRECT
+  - RULE-SET,personal-residential,Claude
+  - RULE-SET,personal-proxy,PROXY

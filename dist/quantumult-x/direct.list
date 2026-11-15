@@ -1,0 +1,6 @@
+# Generated; edit rules/direct.list instead.
+host-suffix,qq.com,direct
+host-suffix,wechat.com,direct
+host-suffix,weixinbridge.com,direct
+host-suffix,sanfengyun.com,direct
+host,key.qudad.icu,direct

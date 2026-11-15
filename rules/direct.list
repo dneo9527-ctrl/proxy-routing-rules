@@ -1,0 +1,6 @@
+# Custom direct domains. No policy suffix in this shared source.
+DOMAIN-SUFFIX,qq.com
+DOMAIN-SUFFIX,wechat.com
+DOMAIN-SUFFIX,weixinbridge.com
+DOMAIN-SUFFIX,sanfengyun.com
+DOMAIN,key.qudad.icu

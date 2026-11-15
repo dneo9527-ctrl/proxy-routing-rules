@@ -1,0 +1,7 @@
+# Generated; edit rules/residential.list instead.
+host-suffix,anthropic.com,RESIDENTIAL
+host-suffix,claude.ai,RESIDENTIAL
+host-suffix,claude.com,RESIDENTIAL
+host-suffix,claude.app,RESIDENTIAL
+host-suffix,claudeusercontent.com,RESIDENTIAL
+host-suffix,claudemcpcontent.com,RESIDENTIAL

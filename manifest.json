@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "rules": {
+    "reject": {
+      "path": "rules/reject.list",
+      "count": 1,
+      "sha256": "b9a40d780d2e3a39cc11674410a022e5fa8e98d3decd1a7581c95aecf18d632a"
+    },
+    "direct": {
+      "path": "rules/direct.list",
+      "count": 5,
+      "sha256": "bf8f46c546f81c5882bb90e0f1ab83e7d7b18549e7407559f0a026dc3f417f85"
+    },
+    "residential": {
+      "path": "rules/residential.list",
+      "count": 6,
+      "sha256": "15a88d269a2c5461fea93fd8118fabc92c457cd931543ffff04d5e34fc29af8d"
+    },
+    "proxy": {
+      "path": "rules/proxy.list",
+      "count": 1,
+      "sha256": "4640a49a0f2b50a1dc3fbd4e4a4f1c0ccbc2c6ca0b451b0db63b01ae607f7e1d"
+    }
+  }
+}
