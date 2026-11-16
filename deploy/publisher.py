@@ -238,6 +238,9 @@ def publish(bundle, sha, base=BASE, verify=public_check, ci=verify_ci):
     stage.chmod(0o755)
     for kind, content in data.items():
         atomic_write(stage / (kind + '.list'), content)
+    if hashes(base) != {k: digest(v) for k, v in current.items()}:
+        shutil.rmtree(stage)
+        raise ValueError('Concurrent edit before activation; reconcile first')
     atomic_json(pending, {'stage': str(stage), 'state_before': state_before,
                          'old_hashes': {k: digest(v) for k, v in current.items()},
                          'new_hashes': {k: digest(v) for k, v in data.items()}})
