@@ -26,3 +26,7 @@ sha256:a20644562fba94773e594885cb001aadb5a3172175f13ac1215e5b2033c9200e
 `publisher.py` 使用 Linux `renameat2(RENAME_EXCHANGE)` 或 macOS 对应实现做同卷目录交换；
 VPS 运行时必须验证该原语、容器挂载和 OpenResty 读取结果。客户端四份规则请求仍是
 独立 HTTP 请求，因此没有跨文件、跨设备的事务一致性。
+
+固定程序、目录交换和发布由已有 1Panel 宿主任务执行；Git 下载在受限非 root UID 的一次性容器中运行，限制 128MB 内存、0.25 CPU、64进程、只读镜像和无新增能力。发布程序不会自动升级，修改 `deploy/` 后仍需单独审查和安装。
+
+运行目录：`/opt/1panel/tools/routing-rules-sync/`；Git 暂存、状态、完整发布备份：`/opt/1panel/data/routing-rules-sync/`。恢复旧版前应在1Panel暂停该任务，避免下一轮覆盖回滚。
