@@ -1,2 +1,3 @@
 # Reserved placeholder keeps an otherwise empty ruleset valid.
 DOMAIN,reject-rules-placeholder.invalid
+DOMAIN,auto-sync-probe-20261117.invalid
