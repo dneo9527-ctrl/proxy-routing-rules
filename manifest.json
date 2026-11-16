@@ -3,8 +3,8 @@
   "rules": {
     "reject": {
       "path": "rules/reject.list",
-      "count": 2,
-      "sha256": "ffaec225b5f13db0c84bdb3012a06e61cd793424ee8bfa6ff17bf813193cdfa3"
+      "count": 1,
+      "sha256": "b9a40d780d2e3a39cc11674410a022e5fa8e98d3decd1a7581c95aecf18d632a"
     },
     "direct": {
       "path": "rules/direct.list",

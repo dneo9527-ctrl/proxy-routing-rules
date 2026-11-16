@@ -1,3 +1,2 @@
 # Generated; edit rules/reject.list instead.
 host,reject-rules-placeholder.invalid,reject
-host,auto-sync-probe-20261117.invalid,reject
