@@ -23,6 +23,6 @@ registry.k8s.io/git-sync/git-sync:v4.8.0
 sha256:a20644562fba94773e594885cb001aadb5a3172175f13ac1215e5b2033c9200e
 ```
 
-`publisher.py` 使用 Linux `renameat2(RENAME交換)` 或 macOS 对应实现做同卷目录交换；
+`publisher.py` 使用 Linux `renameat2(RENAME_EXCHANGE)` 或 macOS 对应实现做同卷目录交换；
 VPS 运行时必须验证该原语、容器挂载和 OpenResty 读取结果。客户端四份规则请求仍是
 独立 HTTP 请求，因此没有跨文件、跨设备的事务一致性。
