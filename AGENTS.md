@@ -10,12 +10,17 @@ reject > direct > residential > proxy. Residential must not fall back to DIRECT.
 
 On an authorized change: edit source, run python3 scripts/rules.py build,
 python3 scripts/rules.py check, and python3 -m unittest discover -s tests -v.
-Commit and push before publishing the same revision through the local project's
-existing 1Panel publishing helper. Recheck remote baseline before writing,
-read back content, record commit SHA and hashes outside this public repository,
-and verify client routing when available. Never install a background publisher
-or reopen private node subscriptions for a rule-only edit.
+Commit and push to main. A green GitHub Actions run creates the validated
+release branch; the visible 1Panel task pulls that branch with the pinned
+kubernetes/git-sync image and runs the separately installed fixed publisher.
+The publisher validates the manifest, CI provenance, and all cross-list rules
+before switching the public directory. Recheck the published SHA and hashes,
+and verify client routing when available. Never execute code from a downloaded
+checkout, reopen private node subscriptions, or add an untracked background
+publisher for a rule-only edit.
 
-GitHub CI validates only; it does not publish to the VPS. A direct GitHub edit
-needs an explicit publishing step. Do not claim all clients were tested.
+GitHub Actions publishes only the validated release branch; the VPS task
+publishes that branch to the existing public directory. Direct edits on main
+therefore wait for CI and the next visible task run. Do not claim all clients
+were tested.
 QX artifacts are generated and require client-side policy mapping.
