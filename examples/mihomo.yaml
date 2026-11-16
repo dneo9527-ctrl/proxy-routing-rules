@@ -7,7 +7,7 @@ rule-providers:
     interval: 300
     proxy: PROXY
     path: ./rule-providers/personal/reject.list
-    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/main/rules/reject.list
+    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/release/rules/reject.list
   personal-direct:
     type: http
     behavior: classical
@@ -15,7 +15,7 @@ rule-providers:
     interval: 300
     proxy: PROXY
     path: ./rule-providers/personal/direct.list
-    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/main/rules/direct.list
+    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/release/rules/direct.list
   personal-residential:
     type: http
     behavior: classical
@@ -23,7 +23,7 @@ rule-providers:
     interval: 300
     proxy: PROXY
     path: ./rule-providers/personal/residential.list
-    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/main/rules/residential.list
+    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/release/rules/residential.list
   personal-proxy:
     type: http
     behavior: classical
@@ -31,7 +31,7 @@ rule-providers:
     interval: 300
     proxy: PROXY
     path: ./rule-providers/personal/proxy.list
-    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/main/rules/proxy.list
+    url: https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/release/rules/proxy.list
 rules:
   # Insert AFTER management/DNS/LAN exceptions, BEFORE broad base rules.
   - RULE-SET,personal-reject,REJECT

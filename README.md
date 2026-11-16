@@ -22,7 +22,7 @@ GitHub 主仓库保存个人规则，现有 VPS 提供发布副本。日常把�
 GitHub Raw 的基本路径：
 
 ```text
-https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/main/rules/
+https://raw.githubusercontent.com/dneo9527-ctrl/proxy-routing-rules/release/rules/
 ```
 
 在路径后添加 `direct.list`、`proxy.list`、`residential.list` 或 `reject.list`。客户端应引用 Raw 原始文件地址，不能引用 GitHub 的 `/blob/` 网页地址。
@@ -70,6 +70,8 @@ python3 -m unittest discover -s tests -v
 发布顺序：检查 → 提交并推送 GitHub → Actions 校验 main 并生成 `release` 分支 → VPS 的 1Panel 可见计划任务拉取固定发布分支 → 固定发布器校验 CI provenance、manifest、域名语法和跨列表冲突 → 在原目录完成同文件系统目录级切换 → 回读四个公开 URL 及 SHA-256 → 终端按自己的间隔刷新。发布器保留上一有效版本，下载、校验或 HTTP 回读失败会恢复旧版。
 
 自动发布使用官方 [kubernetes/git-sync](https://github.com/kubernetes/git-sync) v4.8.0 镜像，镜像按摘要固定。它只负责把 Git 数据拉到隔离暂存区；VPS 不执行下载仓库中的脚本。1Panel 计划任务运行固定的 `deploy/run-sync.py`，规则校验和发布器是单独安装的受信代码。GitHub 不保存面板密码、SSH 私钥或订阅令牌，也不新增公网入口。
+
+在 1Panel → 计划任务中，任务名为「GitHub 分流规则自动同步（git-sync）」，每 5 分钟检查一次，保留最近 60 条执行记录。没有新版本时只检查远端版本，不启动下载容器。
 
 修改 main 后，Actions 变绿才会产生 `release`；VPS 下一次计划任务才会拉取。终端继续使用现有 VPS 地址，无需重新导入，但各终端的后台刷新时间不同，四个文件和所有设备不会同时切换。若要手动回滚，1Panel 任务保留的上一版本可恢复。私有节点订阅保持关闭。
 
